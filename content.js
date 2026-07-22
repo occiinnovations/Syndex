@@ -1,4 +1,4 @@
-console.log('SynoSwap content script loaded');
+console.log('Syndex content script loaded');
 
 let selectedWord = null;
 let selectedRange = null;
@@ -40,11 +40,11 @@ document.addEventListener('mouseup', (e) => {
 });
 
 function showPopup(synonyms, position) {
-  const existing = document.getElementById('synoswap-popup');
+  const existing = document.getElementById('syndex-popup');
   if (existing) existing.remove();
 
   const popup = document.createElement('div');
-  popup.id = 'synoswap-popup';
+  popup.id = 'syndex-popup';
   popup.style.cssText = `
     position: fixed;
     top: ${position.bottom + 10}px;

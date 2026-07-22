@@ -1,15 +1,15 @@
 {
     "manifest_version": 3,
-    "name": "SynoSwap",
+    "name": "Syndex",
     "version": "1.0",
-    "description": "Base Level Extension",
+    "description": "A Chrome extension that provides an easy, straightforwaard way to swap synonyms in Gmail.",
     "permissions": [
         "activeTab",
         "scripting",
         "tabs"
     ],
     "host_permissions": [
-        "<all_urls>"
+        "https://mail.google.com/*"
     ],
     "action": {
         "default_popup": "popup.html"
@@ -20,7 +20,7 @@
     "content_scripts": [
         {
             "matches": [
-                "<all_urls>"
+                "https://mail.google.com/*"
             ],
             "js": [
                 "content.js"
