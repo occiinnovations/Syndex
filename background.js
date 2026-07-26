@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     fetchSynonyms(request.word).then(synonyms => {
       sendResponse({ synonyms: synonyms });
     });
-    return true; // Keep channel open for async response
+    return true;
   }
 });
 

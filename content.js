@@ -116,12 +116,12 @@ function replaceWord(newWord) {
     const endOffset = selectedRange.endOffset;
 
     if (startContainer.nodeType === Node.TEXT_NODE) {
-      // Direct text node replacement
+
       const text = startContainer.textContent;
       const newText = text.substring(0, startOffset) + newWord + text.substring(endOffset);
       startContainer.textContent = newText;
     } else {
-      // Fallback: delete and insert
+
       selectedRange.deleteContents();
       const textNode = document.createTextNode(newWord);
       selectedRange.insertNode(textNode);
