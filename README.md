@@ -11,8 +11,7 @@ Double tap a word in Gmail on your chrome browser. A box underneath/nearby shoul
 # Important notes
 
 1. As of now, this project only works for Gmail.
-2. This may not work perfectly in all cases. In order to debug, use inspect to verify if the system activates or not.
-3. Syndex is an on-going project, more updates are planned.
+2. Syndex is an on-going project, more updates are planned.
 
 # Links 
 
