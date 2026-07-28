@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Syndex",
-    "version": "1.0",
+    "version": "1.1",
     "description": "A Chrome extension that provides an easy, straightforward way to swap synonyms in Gmail.",
     "permissions": [
         "scripting",
