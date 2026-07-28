@@ -13,9 +13,9 @@ Double tap a word in Gmail on your chrome browser. A box underneath/nearby shoul
 1. As of now, this project only works for Gmail.
 2. Syndex is an on-going project, more updates are planned.
 
-# Links 
+# Links for Download 
 
-Chrome Web Store: Coming Soon
+Chrome Web Store: https://chromewebstore.google.com/detail/syndex/fkfodeopodhhojomgfgbblpledidlibf
 
 Google Docs: Coming Soon
 
