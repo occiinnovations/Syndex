@@ -4,6 +4,8 @@ let selectedWord = null;
 let selectedRange = null;
 let mouseDownTime = 0;
 let holdThreshold = 300;
+let lastWheelTime = 0;
+
 
 document.addEventListener('mousedown', (e) => {
   mouseDownTime = Date.now();
@@ -75,6 +77,10 @@ function showPopup(synonyms, position) {
 
   const handleWheel = (e) => {
     e.preventDefault();
+    const now = Date.now();
+    if (now - lastWheelTime < 100) return; // Throttle wheel events
+    lastWheelTime = now;
+
     if (e.deltaY > 0) {
       currentIndex = (currentIndex + 1) % synonyms.length;
     } else {
@@ -110,6 +116,15 @@ function showPopup(synonyms, position) {
 function replaceWord(newWord) {
   if (!selectedRange) return;
 
+  const parentElement = selectedRange.startContainer.parentElement;
+
+  if (!parentElement || (!parentElement.isContentEditable &&
+    parentElement.tagName !== 'INPUT' &&
+    parentElement.tagName !== 'TEXTAREA')) {
+    console.log('Syndex Blocked: Cursor selection is resting inside a non-typing website segment.');
+    return;
+  }
+
   try {
     const startContainer = selectedRange.startContainer;
     const startOffset = selectedRange.startOffset;
@@ -126,6 +141,8 @@ function replaceWord(newWord) {
       const textNode = document.createTextNode(newWord);
       selectedRange.insertNode(textNode);
     }
+    window.getSelection().removeAllRanges();
+
   } catch (error) {
     console.error('Error replacing word:', error);
   }
