@@ -1,4 +1,4 @@
-# Syndex
+# Syndex V1.1
 
 A Chrome extension that shows you synonym suggestions while you write. Hold and select a word, scroll through options, and click to swap it in. Works on Gmail, and soon a version will be in Google Workspace. 
 
