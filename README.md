@@ -1,14 +1,34 @@
-<img width="352" height="280" alt="chrome_r0cwgYgC53" src="https://github.com/user-attachments/assets/33629ae3-9889-45c3-a52f-86613b1a5477" />
-
 # Syndex
 
-A Chrome extension that shows you synonym suggestions while you write. Hold and select a word, scroll through options, and click to swap it in. Works on Gmail, and soon a version will be in Google Workspace.
+A Chrome extension that provides an easy, straightforward way to swap synonyms in Gmail.
 
-Syndex uses the Datamuse API to fetch up to 100 synonyms per word. No login required, no tracking.
+Syndex is especially useful when sending a professional email. It provides support for finding superior word fit without relying on generative AI. This extension will also will help with learning new vocabulary.
 
-## How to Use
+## Functions
 
-Double tap a word in Gmail on your chrome browser. A box underneath/nearby should pop up, and you may scroll on that box to see different synonym options. When you see the synonym you prefer, simply click that synonym in the box, and the word will be replaced in the email.
+When activated in Gmail, users can access Syndex's features automatically with no key binds. When typing an email, the user can use their cursor to select a word, either via a double left click or a left click-and-drag. Once the word is selected, hold down the left click for a short moment and then release. There should be a small box below the selected word. On hover, you can scroll through this box and be shown synonyms of the selected word. There will be a counter from 1-100, and it will say what number synonym you are on.
+
+## Code
+
+```js
+background.js
+...
+let selectedWord = null;
+let selectedRange = null;
+let mouseDownTime = 0;
+let holdThreshold = 300;
+let lastWheelTime = 0;
+
+
+document.addEventListener('mousedown', (e) => {
+  mouseDownTime = Date.now();
+  console.log('mousedown fired');
+});
+
+document.addEventListener('mouseup', (e) => {
+  const holdDuration = Date.now() - mouseDownTime;
+  console.log('mouseup fired, duration:', holdDuration, 'selected:', window.getSelection().toString());
+```
 
 ## Important notes
 
